@@ -63,3 +63,10 @@ async function displayTickets() {
         });
     }
 }
+
+//Task 4: Use finally to Ensure Cleanup
+
+finally {
+    loadingIndicator.style.display = "none";
+}
+
