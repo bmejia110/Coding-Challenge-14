@@ -28,8 +28,38 @@ async function fetchTickets() {
     } finally {
 
     //clears the loading message
-    ticketContainer.innerHTML =" "
+    ticketContainer.innerHTML ="block"
     }
 }
 
 //Task 3: Display Tickets Dynamically on the Page
+
+async function displayTickets() {
+    const tickets = await fetchTickets();
+
+    if(tickets && tickets.length > 0) {
+        tickets.forEach(ticket => {
+            const ticketDiv = document.create Element();
+            ticketDiv.classList.add("ticket");
+
+            const customerName = document.createElement("div");
+            customerName.textContent = "Customer Name: ${ticket.userId)";
+
+            const ticketId = document.createElement("div");
+            ticketID.textContent = "Customer Name: User ${ticket.userId}";
+
+            const issueDesc = document.createElement("div");
+            issueDesc.textContent = "Issue Description: ${ticket.title}";
+
+            const details = document.createElement("div");
+            details.textContent = "Details: ${ticket.body}";
+
+            ticketDiv.appendChild(ticketId);
+            ticketDiv.appendChild(customerName);
+            ticketDiv.appendChild(issueDesc);
+            ticketDiv.appendChild(details);
+
+            ticketContainer.appendChild(ticketDiv);
+        });
+    }
+}
